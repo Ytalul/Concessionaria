@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Página inicial";
+}
+@model MotoModel
+<div class="text-center">
+    <h1 class="display-4">Deseja realmente deletar o veículo (@Model.Nome)?</h1>
+    <a role="button" class="btn btn-primary" asp-controller="Moto" asp-route-id="@Model.Id" asp-action="ApagarMoto">Excluir</a>
+    <a role="button" class="btn btn-danger" asp-controller="Moto" asp-action="Index">Voltar</a>
+</div>

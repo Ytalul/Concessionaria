@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Principal";
+}
+@model List<VeiculoModel>
+
+<div class="text-center">
+    <h1 class="display-4">Listagem de veículos</h1>
+    <br />
+    <table class="table" id="veiculotable">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Motor</th>
+                <th scope="col">Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var veiculo in Model)
+                {
+                    <tr>
+                        <th scope="row">@veiculo.Id</th>
+                        <td>@veiculo.Nome</td>
+                        <td>@veiculo.Ano</td>
+                        <td>@veiculo.Descrição</td>
+                        <td>@veiculo.Motor</td>
+                        <td>@veiculo.Preço</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

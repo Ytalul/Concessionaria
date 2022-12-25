@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Principal";
+}
+@model List<VeiculoModel>
+
+<div>
+    <a role="button" class="btn btn-primary"  asp-controller="Veiculo" asp-action="Adicionar">Adicionar novo veículo</a>
+</div>
+<div class="text-center">
+    <h1 class="display-4">Listagem de veículos</h1>
+    <br />
+<table class="table" id="veiculotable">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Motor</th>
+            <th scope="col">Preço</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+            {
+                @foreach ( var veiculo in Model )
+                {
+                <tr>
+                    <th scope="row">@veiculo.Id</th>
+                    <td>@veiculo.Nome</td>
+                    <td>@veiculo.Ano</td>
+                    <td>@veiculo.Descrição</td>
+                    <td>@veiculo.Motor</td>
+                    <td>@veiculo.Preço</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-primary" asp-route-id="@veiculo.Id"  role="button" asp-controller="Veiculo" asp-action="Editar">Editar</a>
+                            <a class="btn btn-danger" asp-route-id="@veiculo.Id" role="button" asp-controller="Veiculo" asp-action="Apagar">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            }
+
+    </tbody>
+</table>
+</div>

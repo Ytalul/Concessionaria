@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Atualizar moto";
+}
+@model MotoModel
+
+<div class="text-center">
+    <h2 class="display-4">Atualizar informações da moto</h2>
+</div>
+<form asp-controller="Moto" asp-action="Atualizar" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input asp-for="Nome" type="text" class="form-control" placeholder="Nome do veículo">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    <div class="form-group">
+        <label for="Ano">Ano</label>
+        <input asp-for="Ano" type="number" class="form-control" placeholder="Ano">
+        @Html.ValidationMessageFor(x => x.Ano)
+    </div>
+    <div class="form-group">
+        <label for="Descrição">Cilindradas</label>
+        <input asp-for="Cilindradas" type="text" class="form-control" placeholder="Cilindradas">
+        @Html.ValidationMessageFor(x => x.Cilindradas)
+    </div>
+    <div class="form-group">
+        <label for="Motor">Velocidade Máxima</label>
+        <input asp-for="MaxVel" type="text" class="form-control" placeholder="Velocidade Máxima">
+        @Html.ValidationMessageFor(x => x.MaxVel)
+    </div>
+    <div class="form-group">
+        <label for="Preço">Preço</label>
+        <input asp-for="Preço" type="number" class="form-control" placeholder="Preço">
+        @Html.ValidationMessageFor(x => x.Preço)
+        <br />
+
+    </div>
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a role="button" class="btn btn-danger" asp-controller="Moto" asp-action="Index">Voltar</a>
+</form>
